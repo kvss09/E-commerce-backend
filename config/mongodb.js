@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 const url = "mongodb://localhost:27017/e-commerce_users";
-
+const client = new MongoClient(url);
 export const connectToMongodb = () => {
   MongoClient.connect(url)
     .then((clientinstace) => {
