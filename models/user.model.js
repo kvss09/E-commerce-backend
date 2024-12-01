@@ -12,19 +12,28 @@ export default class userModel {
   }
   // add methods for userModel here
   //add to database
-  addUser(user) {
+  async addUser(user) {
     const db = getDB();
     const collection = db.collection("users");
-    return collection.insertOne(user);
+    return await collection.insertOne(user);
   }
-  getUser(email) {
+  async getUser(email) {
     const db = getDB();
     const collection = db.collection("users");
-    return collection.findOne({ email: email });
+    return await collection.findOne({ email: email });
   }
-  isUser(user) {
+  async isUser(user) {
     const db = getDB();
+    console.log(user);
     const collection = db.collection("users");
-    return collection.findOne({ email: user.email });
+    return await collection.findOne({ email: user.email });
+  }
+  async getUserById(id) {
+    const db = getDB();
+    console.log(id);
+    const collection = db.collection("users");
+    const user = await collection.findOne({ _id: id });
+    console.log(user);
+    return user;
   }
 }
