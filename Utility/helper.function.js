@@ -20,3 +20,9 @@ export const sendEmail = async (emails, subject, message) => {
     console.log("Email sending falied due to error" + err);
   }
 };
+
+export const sendOTP = (req, res) => {};
+
+export const verifyOTP = (req, res) => {};
+
+export const forgotPassword = (req, res) => {};

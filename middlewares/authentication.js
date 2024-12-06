@@ -6,7 +6,7 @@ export const isUserSignedIn = async (req, res, next) => {
   const usermodel = new userModel();
   console.log(token);
   if (!token) {
-    return res.status(401).send(json.stringfy({ message: "Unauthorized" }));
+    return res.status(401).send({ message: "Unauthorized" });
   }
   try {
     const decode = jwt.verify(

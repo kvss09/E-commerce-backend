@@ -89,4 +89,14 @@ export const SignIn = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
-export default SignUp;
+export const Logout = (req, res) => {
+  try {
+    res.clearCookie("auth_token");
+    return res
+      .status(200)
+      .json({ success: true, message: "User logged out successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
